@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "logins_detail")
@@ -24,6 +23,8 @@ public class LoginDetail {
     private String password;
     @Column(name = "attempts")
     private Integer attempts = 0;
+    @Column(name = "locked")
+    private Boolean locked = false;
 
     // Getters and Setters
 
@@ -67,6 +68,14 @@ public class LoginDetail {
         this.attempts = attempts;
     }
 
+    public Boolean getLocked() {
+        return locked;
+    }
+
+    public void setLocked(Boolean locked) {
+        this.locked = locked;
+    }
+
     @Override
     public String toString() {
         return "LoginDetail{" +
@@ -75,6 +84,7 @@ public class LoginDetail {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", attempts=" + attempts +
+                ", locked=" + locked +
                 '}';
     }
 }
