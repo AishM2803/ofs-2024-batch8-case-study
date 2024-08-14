@@ -34,7 +34,22 @@ public class AccountDetail {
     @Column(name = "approval_status")
     private Boolean approvalStatus = false;
 
+    // Default constructor
+    public AccountDetail() {
+    }
+
+    // Parameterized constructor
+    public AccountDetail(Long customerId, String accountType, Double balance, Double minBalance, Boolean overdraftAvailable, Boolean approvalStatus) {
+        this.customerId = customerId;
+        this.accountType = accountType;
+        this.balance = balance;
+        this.minBalance = minBalance;
+        this.overdraftAvailable = overdraftAvailable;
+        this.approvalStatus = approvalStatus;
+    }
+
     // Getters and Setters
+
     public Integer getAccountId() {
         return accountId;
     }

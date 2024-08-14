@@ -15,14 +15,19 @@ public class LoginDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    
     @Column(name = "customer_id")
     private Long customerId;
+    
     @Column(name = "username")
     private String username;
+    
     @Column(name = "password")
     private String password;
+    
     @Column(name = "attempts")
     private Integer attempts = 0;
+    
     @Column(name = "locked")
     private Boolean locked = false;
 

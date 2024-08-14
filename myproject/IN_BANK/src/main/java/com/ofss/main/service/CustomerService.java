@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service;
 import com.ofss.main.domain.CustomerDetail;
 import com.ofss.main.repository.CustomerDetailRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class CustomerService {
 
     @Autowired

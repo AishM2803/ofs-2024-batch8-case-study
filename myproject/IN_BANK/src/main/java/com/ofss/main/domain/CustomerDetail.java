@@ -1,7 +1,8 @@
+// CustomerDetail.java
+
 package com.ofss.main.domain;
 
 import java.sql.Date;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,24 +18,34 @@ public class CustomerDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long customerId;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "username")
     private String username;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
+
     @Column(name = "address")
     private String address;
+
     @Column(name = "email")
     private String email;
+
     @Column(name = "phone_number")
     private String phoneNumber;
+
     @Column(name = "locked_status")
     private Boolean lockedStatus = false;
+
     @Column(name = "approval_status")
     private Boolean approvalStatus = false;
 

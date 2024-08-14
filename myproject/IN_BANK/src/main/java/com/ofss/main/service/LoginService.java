@@ -29,15 +29,15 @@ public class LoginService {
     public boolean attemptLogin(String username, String password) {
         LoginDetail loginDetail = loginDetailRepository.findByUsername(username);
         if (loginDetail == null) {
-            return false;
+            return false; // User does not exist
+        }
+
+        if (loginDetail.getLocked()) {
+            return false; // User account is locked
         }
 
         if (loginDetail.getAttempts() >= MAX_ATTEMPTS) {
-            CustomerDetail customer = customerService.getCustomerByUsername(username);
-            if (customer != null) {
-                customer.setLockedStatus(true);
-                customerService.registerCustomer(customer); // Save locked status
-            }
+            lockUserAccount(username);
             return false;
         }
 
@@ -49,6 +49,20 @@ public class LoginService {
             loginDetail.setAttempts(loginDetail.getAttempts() + 1); // Increment attempts
             loginDetailRepository.save(loginDetail);
             return false;
+        }
+    }
+
+    private void lockUserAccount(String username) {
+        LoginDetail loginDetail = loginDetailRepository.findByUsername(username);
+        if (loginDetail != null) {
+            loginDetail.setLocked(true);
+            loginDetailRepository.save(loginDetail);
+
+            CustomerDetail customer = customerService.getCustomerByUsername(username);
+            if (customer != null) {
+                customer.setLockedStatus(true); // Lock customer account
+                customerService.registerCustomer(customer); // Save updated customer
+            }
         }
     }
 }
