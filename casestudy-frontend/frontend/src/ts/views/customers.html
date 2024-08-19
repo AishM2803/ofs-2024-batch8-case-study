@@ -1,0 +1,47 @@
+<div class="oj-hybrid-padding">
+  <b>Accounts</b>
+  <oj-table
+    id="table"
+    aria-label="Departments Table"
+    accessibility.row-header="depName"
+    data="[[dataprovider]]"
+    selection-mode='{"row": "multiple", "column": "multiple"}'
+    dnd='{"reorder": {"columns": "enabled"}}'
+    scroll-policy="loadMoreOnScroll"
+    scroll-policy-options='{"fetchSize": 10}'
+    columns='[{"headerText": "Account Id", 
+             "field": "accountId",
+             "headerClassName": "oj-sm-only-hide",
+             "className": "oj-sm-only-hide",
+             "resizable": "enabled",
+             "id": "accountId"},
+            {"headerText": "customerID", 
+             "field": "customerID",
+             "resizable": "enabled",
+             "id": "customerID"},
+            {"headerText": "accountType", 
+             "field": "accountType",
+             "headerClassName": "oj-sm-only-hide",
+             "className": "oj-sm-only-hide",
+             "resizable": "enabled",
+             "id": "accountType"},
+            {"headerText": "balance", 
+             "field": "balance",
+             "headerClassName": "oj-md-down-hide",
+             "className": "oj-md-down-hide",
+             "resizable": "enabled",
+             "id": "balance"},
+             {"headerText": "OverdraftAvailable", 
+             "field": "OverdraftAvailable",
+             "headerClassName": "oj-md-down-hide",
+             "className": "oj-md-down-hide",
+             "resizable": "enabled",
+             "id": "OverdraftAvailable"}]'
+    class="demo-table-container"
+  ></oj-table>
+  <oj-c-button
+    id="button3"
+    on-oj-action="[[accountAction]]"
+    label="New Account"
+  ></oj-c-button>
+</div>

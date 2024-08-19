@@ -1,0 +1,31 @@
+
+
+  <div class="oj-hybrid-padding" style="text-align: center;">
+    <h1>WELCOME TO BANK</h1>
+    <div>
+      <h5>SIGN UP</h5>
+      <div style="padding-inline: 300px;">
+        <oj-c-form-layout id="formLayoutOptions" max-columns="2" direction="column" user-assistance-density="compact">
+          <oj-c-input-text id="text-input" value="{{firstname}}" label-hint="Enter First Name  "
+          label-edge="inside"></oj-c-input-text>
+          <oj-c-input-text id="text-input" value="{{lastname}}" label-hint="Enter Last Name  "
+          label-edge="inside"></oj-c-input-text>
+          <oj-c-input-text id="text-input" value="{{username}}" label-hint="Enter username "
+            label-edge="inside"></oj-c-input-text>
+          <oj-c-input-password value="{{password}}" label-hint="Enter password" 
+            label-hint="password"></oj-c-input-password>
+            <oj-input-date label-hint="Enter DOB" value="{{dob}}"autocomplete="off"></oj-input-date>
+            <oj-c-input-text id="text-input" value="{{address}}" label-hint="Enter address "
+          label-edge="inside"></oj-c-input-text>
+          <oj-c-input-text id="text-input" value="{{email}}" label-hint="Enter email "
+          label-edge="inside"></oj-c-input-text>
+          <oj-c-input-number
+                    value="{{mobileno}}"
+                    label-hint="Enter mobile no"min="0" step="0">
+          </oj-c-input-number>
+            <oj-c-button  id="button1" disabled="[[username()==null || username().trim()==='']]"  on-oj-action="[[register]]" label="Submit"></oj-c-button>
+            <P>Already have an account? <a href="../views/dashboard.html">login here</a></P>
+          </oj-c-form-layout>
+  
+      </div>
+    </div>

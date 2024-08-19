@@ -1,0 +1,31 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+ <div class="oj-hybrid-padding" style="text-align: center;">
+  <h1>WELCOME TO BANK</h1>
+  <div>
+    <h5>SIGN IN</h5>
+    <div style="padding-inline: 300px;">
+      <oj-c-form-layout id="formLayoutOptions" max-columns="2" direction="column" user-assistance-density="compact">
+        <oj-c-input-text id="text-input" value="{{username}}" label-hint="Enter First name  "
+          label-edge="inside"></oj-c-input-text>
+        <oj-c-input-password label-hint="Enter password" value="{{password}}"
+          label-hint="password"></oj-c-input-password>
+          <oj-c-button  id="button1"  on-oj-action="[[login]]" label="Submit"></oj-c-button>
+          <P>don't have an account? <a href="../views/incidents.html">register here</a></P>
+        </oj-c-form-layout>
+        
+  <!-- Display Success Message -->
+<div data-bind="if: successMessage">
+  <p style="color: green;" data-bind="text: successMessage"></p>
+</div>
+
+<!-- Display Error Message -->
+<div data-bind="if: errorMessage">
+  <p style="color: red;" data-bind="text: errorMessage"></p>
+</div>
+
+    </div>
+  </div>
